@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="地域を入力すると天気が出ます。">
+        <title>How is the weather today?</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/top.css">
+    </head>
+    <body class="weather-top">
+        <div class="header">
+            <h1 class="text-center">How is the weather today?</h1>
+            <div class="text-center">
+                <select name="prefecture" id="prefecture">
+                    <option value="tokyo">東京</option>
+                    <option value="nagoya">名古屋</option>
+                    <option value="osaka">大阪</option>
+                    <option value="kochi">高知</option>
+                    <option value="okinawa">沖縄</option>
+                </select>
+                <input type="button" value="送信する" onclick="submit()">
+            </div>
+        </div>
+
+        <div class="day-0 m-5">
+            <h2 id="area_0"></h2>
+            <div id="date_0"></div>
+            <div id="weather_0"></div>
+            <table id="temperature_table_0" class="invisible">
+                <tr><th>Max Temperature</th><th>Min Temperature</th></tr>
+                <td><div id="temperature_max_0" class="p-3"></div></td>
+                <td><div id="temperature_min_0" class="p-3"></div></td>
+            </table>
+        </div>
+
+        <div id="detailWrapper" class="invisible text-center">
+            <input id="detailButton" type="button" value="Detail and Tommorow" onclick="clickDetail()">
+        </div>
+        <div class="invisible" id="detail">
+            <div id="detail_0" class="detail-text"></div>
+            <div class="day-1">
+                <div id="area_1"></div>
+                <div id="date_1"></div>
+                <div id="weather_1"></div>
+            </div>
+
+            <div class="day-2">
+                <div id="area_2"></div>
+                <div id="date_2"></div>
+                <div id="weather_2"></div>
+            </div>
+        </div>
+
+        <script src="../js/api.js"></script>
+
+    </body>
+
+</html>
