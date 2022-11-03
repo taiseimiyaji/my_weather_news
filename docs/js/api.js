@@ -114,7 +114,7 @@ async function submit() {
     document.getElementById('detail_0').textContent = dayWeather.detail;
 
     // 背景画像の設定
-    document.body.style.backgroundImage = "url(../" + judge_images(todayWeather) + ")";
+    document.body.style.backgroundImage = "url(" + judge_images(todayWeather) + ")";
     document.getElementById("detailWrapper").className = 'text-center visible';
 
 }

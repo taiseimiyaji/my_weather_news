@@ -22,5 +22,5 @@ html {
 }
 
 .detail-text{
-    white-space: normal;
+    white-space: break-spaces;
 }
