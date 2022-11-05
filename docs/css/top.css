@@ -24,3 +24,19 @@ html {
 .detail-text{
     white-space: break-spaces;
 }
+
+.temp-table {
+    margin-top: 2rem;
+}
+
+table {
+    display: inline-block;
+    align-content: center;
+    text-align: center;
+    padding: 0.25rem;
+    border: 1px solid #dee2e6!important;
+}
+
+.button {
+    
+}

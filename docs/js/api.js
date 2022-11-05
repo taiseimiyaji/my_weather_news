@@ -40,11 +40,19 @@ class Weather{
     }
 }
 
+window.onload = fetchWeather();
+
+function submit() {
+    const prefecture = document.getElementById("prefecture").value;
+    localStorage.setItem('prefecture', prefecture);
+    fetchWeather();
+}
+
 // 選んだ場所の天気を表示する
 // 表示期間は現在の天気 + 今日の最高気温、最低気温
 
-async function submit() {
-    const prefecture = document.getElementById("prefecture").value;
+async function fetchWeather() {
+    prefecture = localStorage.getItem('prefecture');
     const today = formatDate(new Date());
     const prefecture_list = {
         tokyo: {
@@ -104,7 +112,7 @@ async function submit() {
         );
 
         // HTML要素へ反映
-        document.getElementById('area_' + i).textContent = dayWeather.area;
+        document.getElementById('area_' + 0).textContent = dayWeather.area;
         document.getElementById('date_' + i).textContent = dayWeather.date;
         document.getElementById('weather_' + i).textContent = dayWeather.weather;
         document.getElementById('temperature_max_0').textContent = dayWeather.temperature_max;
@@ -128,21 +136,21 @@ function judge_images(weather) {
     const rainy_image_2 = 'images/rainy_2.jpg';
     const time = new Date().getSeconds();
 
-    if(weather.includes('晴れ')) {
+    if(weather.substr(0, 3).includes('晴れ')) {
         if(time % 2 === 0){
             return sunny_image_1;
         }else{
             return sunny_image_2;
         }
     }
-    else if(weather.includes('曇り')) {
+    else if(weather.substr(0, 3).includes('くもり')) {
         if(time % 2 === 0){
             return cloudy_image_1;
         }else{
             return cloudy_image_2;
         }
     }
-    else if(weather.includes('雨')){
+    else if(weather.substr(0, 3).includes('雨')){
         if(time % 2 === 0){
             return rainy_image_1;
         }else{
